@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>文化祭 バド部 売上記録</title>
+            <style>
+.my-table {
+  border-collapse: collapse;
+}
+.my-table th,
+.my-table td {
+  border: 1px solid #999;
+}
+</style>
+  </head>
+  <body>
+    <h2>商品一覧</h2>
+    <ol>
+        <li><b><font color="red">黒糖ミルク</font></b>(¥100-)</li>
+        <li><b><font color="red">抹茶黒糖ミルク</font></b>(¥150-)</li>
+        <li><b><font color="red">抹茶ミルク</font></b>(¥302-)</li>
+    </ol>
+<table class="my-table" id="my-table">
+  <tr><th></th><th>黒糖ミルク</th><th>抹茶黒糖ミルク</th><th>抹茶ミルク</th><th>合計</th></tr>
+  <tr><th>個数</th><td class="fpnumber">0</td><td class="spnumber">0</td><td class="tpnumber">0</td><td class="topnumber">0</td></tr>
+  <tr><th>金額</th><td class="fmnumber">0</td><td class="smnumber">0</td><td class="tmnumber">0</td><td class="tomnumber">0</td></tr>
+</table>
+    <p>黒糖ミルク</p>
+    <button type="button" onclick="fadd()">追加</button>
+    <button type="button" onclick="frem()">取り消し</button><br>
+    <p>抹茶黒糖ミルク</p>
+    <button type="button" onclick="sadd()">追加</button>
+    <button type="button" onclick="srem()">取り消し</button><br>
+    <p>抹茶ミルク</p>
+    <button type="button" onclick="tadd()">追加</button>
+    <button type="button" onclick="trem()">取り消し</button><br><br><br>
+<input type="number" name="number" value=0 id="fedit"><br>
+<input type="number" name="number" value=0 id="sedit"> <br>
+<input type="number" name="number" value=0 id="tedit"><br>
+<button type="button" onclick="edit()">edit</button>
+    <script>
+  const fprice = 100;
+  const sprice = 150;
+  const tprice = 302;
+ function fadd() {
+ const tbl = document.getElementById('my-table');
+ let fpnumber = tbl.rows[1].cells[1].innerText;
+   fpnumber++; 
+     tbl.rows[1].cells[1].innerText = fpnumber;
+ let topnumber = tbl.rows[1].cells[4].innerText;
+   topnumber++; 
+     tbl.rows[1].cells[4].innerText = topnumber;
+ let fmnumber = tbl.rows[2].cells[1].innerText;
+   fmnumber=Number(fmnumber)+fprice; 
+     tbl.rows[2].cells[1].innerText = fmnumber;
+let tomnumber = tbl.rows[2].cells[4].innerText;
+   tomnumber=Number(tomnumber)+fprice; 
+     tbl.rows[2].cells[4].innerText = tomnumber;
+ }
+ function sadd() {
+ const tbl = document.getElementById('my-table');
+ let spnumber = tbl.rows[1].cells[2].innerText;
+   spnumber++; 
+     tbl.rows[1].cells[2].innerText = spnumber;
+ let topnumber = tbl.rows[1].cells[4].innerText;
+   topnumber++; 
+     tbl.rows[1].cells[4].innerText = topnumber;
+ let smnumber = tbl.rows[2].cells[2].innerText;
+   smnumber=Number(smnumber)+sprice; 
+     tbl.rows[2].cells[2].innerText = smnumber;
+let tomnumber = tbl.rows[2].cells[4].innerText;
+   tomnumber=Number(tomnumber)+sprice; 
+     tbl.rows[2].cells[4].innerText = tomnumber;
+ }
+ function tadd() {
+ const tbl = document.getElementById('my-table');
+ let tpnumber = tbl.rows[1].cells[3].innerText;
+   tpnumber++; 
+     tbl.rows[1].cells[3].innerText = tpnumber;
+ let topnumber = tbl.rows[1].cells[4].innerText;
+   topnumber++; 
+     tbl.rows[1].cells[4].innerText = topnumber;
+ let tmnumber = tbl.rows[2].cells[3].innerText;
+   tmnumber=Number(tmnumber)+tprice; 
+     tbl.rows[2].cells[3].innerText = tmnumber;
+let tomnumber = tbl.rows[2].cells[4].innerText;
+   tomnumber=Number(tomnumber)+tprice; 
+     tbl.rows[2].cells[4].innerText = tomnumber;
+ }
+ function frem() {
+ const tbl = document.getElementById('my-table');
+ let fpnumber = tbl.rows[1].cells[1].innerText;
+    if(fpnumber>=1){
+   fpnumber--; 
+     tbl.rows[1].cells[1].innerText = fpnumber;
+ let topnumber = tbl.rows[1].cells[4].innerText;
+   topnumber--; 
+     tbl.rows[1].cells[4].innerText = topnumber;
+ let fmnumber = tbl.rows[2].cells[1].innerText;
+   fmnumber=Number(fmnumber)-fprice; 
+     tbl.rows[2].cells[1].innerText = fmnumber;
+let tomnumber = tbl.rows[2].cells[4].innerText;
+   tomnumber=Number(tomnumber)-fprice; 
+     tbl.rows[2].cells[4].innerText = tomnumber;
+ }
+}
+  function srem() {
+ const tbl = document.getElementById('my-table');
+ let spnumber = tbl.rows[1].cells[2].innerText;
+    if(spnumber>=1){
+   spnumber--; 
+     tbl.rows[1].cells[2].innerText = spnumber;
+ let topnumber = tbl.rows[1].cells[4].innerText;
+   topnumber--; 
+     tbl.rows[1].cells[4].innerText = topnumber;
+ let smnumber = tbl.rows[2].cells[2].innerText;
+   smnumber=Number(smnumber)-sprice; 
+     tbl.rows[2].cells[2].innerText = smnumber;
+let tomnumber = tbl.rows[2].cells[4].innerText;
+   tomnumber=Number(tomnumber)-sprice; 
+     tbl.rows[2].cells[4].innerText = tomnumber;
+ }
+}
+ function trem() {
+ const tbl = document.getElementById('my-table');
+ let tpnumber = tbl.rows[1].cells[3].innerText;
+    if(tpnumber>=1){
+   tpnumber--; 
+     tbl.rows[1].cells[3].innerText = tpnumber;
+ let topnumber = tbl.rows[1].cells[4].innerText;
+   topnumber--; 
+     tbl.rows[1].cells[4].innerText = topnumber;
+ let tmnumber = tbl.rows[2].cells[3].innerText;
+   tmnumber=Number(tmnumber)-tprice; 
+     tbl.rows[2].cells[3].innerText = tmnumber;
+let tomnumber = tbl.rows[2].cells[4].innerText;
+   tomnumber=Number(tomnumber)-tprice; 
+     tbl.rows[2].cells[4].innerText = tomnumber;
+ }
+}
+ function edit() {
+    const result = prompt("password");
+     if(result==="850744813"){
+     let fedit = document.getElementById('fedit');
+     let sedit = document.getElementById('sedit');
+     let tedit = document.getElementById('tedit');
+     const tbl = document.getElementById('my-table');
+     tbl.rows[1].cells[1].innerText = fedit.value;
+     tbl.rows[1].cells[2].innerText = sedit.value;
+     tbl.rows[1].cells[3].innerText = tedit.value;
+     tbl.rows[1].cells[4].innerText = Number(fedit.value)+Number(sedit.value)+Number(tedit.value);
+     tbl.rows[2].cells[1].innerText = Number(fedit.value)*fprice;
+     tbl.rows[2].cells[2].innerText = Number(sedit.value)*sprice;
+     tbl.rows[2].cells[3].innerText = Number(tedit.value)*tprice;
+     tbl.rows[2].cells[4].innerText = Number(fedit.value)*fprice+Number(sedit.value)*sprice+Number(tedit.value)*tprice;
+}else{
+ alert(wrong);
+}
+}
+</script>
+  </body>
+</html>
